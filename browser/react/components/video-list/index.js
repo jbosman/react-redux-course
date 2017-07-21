@@ -1,12 +1,14 @@
 import React from 'react';
 
+import VideoListItem from '../video-list-item';
+
 require('./index.scss');
 
 function renderVideos(listOfVideos){
 	return listOfVideos.map( (video) => {
 
 		const { title } = video.snippet;
-		return <li key={video.id.videoId} >{ title }</li> 
+		return <VideoListItem key={video.id.videoId} title={ title } />
 	})
 }
 

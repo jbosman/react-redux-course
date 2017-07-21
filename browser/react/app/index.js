@@ -6,7 +6,6 @@ import VideoList from '../components/video-list';
 
 const API_KEY = 'AIzaSyDgGYqXUfcvqlXXzR6_V8CfyDZpafDgB1I';
 
-
 require('./index.scss');
 
 export default class App extends Component {
