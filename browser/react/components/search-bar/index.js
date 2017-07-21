@@ -24,9 +24,6 @@ export default class SearchBar extends Component {
 					value={ term }
 					onChange={ this.onInputChange } 
 					type="text" placeholder="search" />
-				<div>
-					Value of the input: { term }
-				</div>
 			</div>
 		);
 	}
