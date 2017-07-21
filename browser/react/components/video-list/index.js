@@ -6,9 +6,7 @@ require('./index.scss');
 
 function renderVideos(listOfVideos){
 	return listOfVideos.map( (video) => {
-
-		const { title } = video.snippet;
-		return <VideoListItem key={video.id.videoId} title={ title } />
+		return <VideoListItem key={video.id.videoId} video={ video } />
 	})
 }
 

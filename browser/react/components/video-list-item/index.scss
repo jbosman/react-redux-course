@@ -1,5 +1,7 @@
-.video-list {
-	width: 500px;
-	margin: 20px auto;
-	list-style: none;
+.video-list-item {
+	margin-bottom: 20px;
+
+	.video-img-container {
+		margin-top: 5px;
+	}
 }
