@@ -18,8 +18,14 @@ export default class App extends Component {
 			selectedVideo: null
 		};
 
+		this.videoSearch('surfboards');
+
+		this.updateSelectedVideo = this.updateSelectedVideo.bind(this);
+	}
+
+	videoSearch(term){
 		YTSearch(
-			{ key: API_KEY, term:'surfboards'}, 
+			{ key: API_KEY, term:term}, 
 			videos => {
 				this.setState({ 
 					videos: videos, 
@@ -27,8 +33,6 @@ export default class App extends Component {
 				})
 			}
 		);
-
-		this.updateSelectedVideo = this.updateSelectedVideo.bind(this);
 	}
 
 	updateSelectedVideo(selectedVideo){
@@ -43,7 +47,7 @@ export default class App extends Component {
 
 		return (
 			<div className='app-component'>
-				<SearchBar />
+				<SearchBar onSearchTermChange={ term => this.videoSearch(term) }/>
 				<div className='main-container'>
 					<VideoDetail video={ selectedVideo } />
 					<VideoList 
