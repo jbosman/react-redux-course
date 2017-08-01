@@ -21,14 +21,8 @@ export default class App extends Component {
 		YTSearch(
 			{ key: API_KEY, term:'surfboards'}, 
 			videos => {
-				let temp = [];
-				for( let i = 0; i < 2; i++){
-					for(let j = 0; j < videos.length; j++){
-						temp.push(videos[j])
-					}
-				}
 				this.setState({ 
-					videos: temp, 
+					videos: videos, 
 					selectedVideo: videos[0]
 				})
 			}
