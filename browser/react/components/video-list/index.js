@@ -7,18 +7,18 @@ require('./index.scss');
 function renderVideos(listOfVideos, clickHandler){
 	return listOfVideos.map( (video) => {
 		return <VideoListItem 
-					key={video.id.videoId} 
+					 
 					video={ video } 
-					clickHandler= { clickHandler }
+					onVideoSelect= { clickHandler }
 				/>
 	})
 }
-
-export default function VideoList({videos, clickHandler}){
+// key={video.id.videoId}
+export default function VideoList({videos, onVideoSelect}){
 
 	return (
 		<ul className='video-list'>
-			{ videos.length ? renderVideos(videos, clickHandler) : 'loading...' }
+			{ videos.length ? renderVideos(videos, onVideoSelect) : 'loading...' }
 		</ul>
 	)
 }

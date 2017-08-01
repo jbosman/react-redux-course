@@ -1,7 +1,80 @@
 .app-component {
-	h1 { 
-		color: #2ecc71;
-		text-align: center;
-		margin-top: 15vh; 
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: 25px;
+
+	.search-bar {
+		flex: 0 1 auto;
+		width: 100%;
 	}
+	
+	.main-container {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: row;
+
+		.video-detail { flex: 1 1 auto; }
+
+		.video-list { 
+			height: 100vh;
+			padding-bottom: 30px;
+			flex: 0 1 auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			white-space: nowrap;
+			overflow-y: auto;
+
+			.video-list-item {
+				flex: 1 1 auto;
+				min-height: 120px;
+				max-height: 120px;
+			}
+		}
+	}
+
+	@media all and (orientation: portrait){
+		.main-container { 
+			flex-direction: column;
+
+			.video-detail {
+				flex: 1 1 auto;
+				order: 2;
+			}
+
+			.video-list {
+				height: 100%;
+				flex: 0 1 auto;
+				display: flex;
+				flex-direction: row;
+				white-space: nowrap;
+				overflow-x: auto;
+				width: 100vw;
+
+
+				.video-list-item {
+					flex: 1 1 auto;
+					min-width: 150px;
+					max-width: 150px;
+
+					display: flex;
+					flex-direction: column;
+					
+					.video-img-container{
+						flex: 1 1 auto;
+					}
+
+					.video-img-title {
+						flex: 0 1 auto;
+						order: 2;
+						overflow-x: hidden;
+					}
+				}
+			} 
+
+
+		}
+	}
+
 }

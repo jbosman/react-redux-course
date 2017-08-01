@@ -12,13 +12,19 @@ export default function VideoDetail({video}){
 
 	return (
 		<div className='video-detail'>
-			<div className='embed-responsive embed-responsive-16by9'>
+			<div className='video-container embed-responsive embed-responsive-16by9'>
 				<iframe className='embed-responsive-item' src={url} />
 			</div>
 			<div className='details' >
-				<div>{ title }</div>
-				<div>{ description }</div>
+				<div className='title'>
+					{ title }
+				</div>
+				<div className='description'>
+					{ description }
+				</div>
 			</div>
 		</div>
 	)
 }
+//
+//

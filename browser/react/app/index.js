@@ -15,30 +15,47 @@ export default class App extends Component {
 
 		this.state = {
 			videos: [],
-			videoDetail: null
+			selectedVideo: null
 		};
 
-		YTSearch({ key: API_KEY, term:'surfboards'}, 
-			videos => this.setState({ videos, videoDetail: videos[0]}));
+		YTSearch(
+			{ key: API_KEY, term:'surfboards'}, 
+			videos => {
+				let temp = [];
+				for( let i = 0; i < 2; i++){
+					for(let j = 0; j < videos.length; j++){
+						temp.push(videos[j])
+					}
+				}
+				this.setState({ 
+					videos: temp, 
+					selectedVideo: videos[0]
+				})
+			}
+		);
 
-		this.updateVideoDetail = this.updateVideoDetail.bind(this);
+		this.updateSelectedVideo = this.updateSelectedVideo.bind(this);
 	}
 
-	updateVideoDetail(videoDetail){
-		this.setState({videoDetail});
+	updateSelectedVideo(selectedVideo){
+		this.setState({selectedVideo});
 	}
 
 	render(){
 
 		const { 
 			videos,
-			videoDetail } = this.state;
+			selectedVideo } = this.state;
 
 		return (
 			<div className='app-component'>
 				<SearchBar />
-				<VideoDetail 	video={ videoDetail } />
-				<VideoList 		videos={ videos }  clickHandler={this.updateVideoDetail} />
+				<div className='main-container'>
+					<VideoDetail video={ selectedVideo } />
+					<VideoList 
+						videos={ videos }  
+						onVideoSelect={this.updateSelectedVideo} />
+					</div>
 			</div>
 		)
 	}
